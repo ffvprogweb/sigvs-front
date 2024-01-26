@@ -11,8 +11,27 @@ const ConsultaCatalogo = () => {
       //carrega os dados na variavel produto
       setProdutos(dados);
     };
-    consulta( );
-  }, [ ]);
-  return <div className="App">{JSON.stringify(produtos)} </div>;
+    consulta();
+  }, []);
+  return (
+    <div className="App">
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          {produtos.map((produto) => (
+            <tr key={produto.id}>
+              <td>{produto.id}</td>
+              <td className="Catalogo">{produto.descricao}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 };
 export default ConsultaCatalogo;
