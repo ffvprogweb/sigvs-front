@@ -1,37 +1,24 @@
 import { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
+import { listaDeProdutos } from "../ListaProdutos";
 const ConsultaCatalogo = () => {
   const [produtos, setProdutos] = useState([]);
-  const [erro, setErro] = useState(null);
+
   useEffect(() => {
-    const consulta = async () => {
-      try {
-        const resposta = await fetch("http://localhost:8080/api/v1/produtos");
-        if (!resposta.ok) {
-          throw new Error();
-        }
-        const dados = await resposta.json(); //retorna um array de objetos json
-        //apresenta os dados na console como um string json
-        console.log(JSON.stringify(dados));
-        //carrega os dados na variavel produto
-        setProdutos(dados);
-      } catch (error) {
-        setErro(error.message);
-      }
-    };
-    consulta();
+    listaDeProdutos()
+      .then((response) => {
+        setProdutos(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
-  if (erro)
-    return (
-      <>
-        <h3>Consulta Catalogo </h3>
-        <p>Erro na consulta: {erro}</p>
-      </>
-    );
+
   return (
-    <div>
-      <h3>Consulta Catalogo </h3>
-      <table className="Catalogo">
+    <div className="container">
+      <h5 className="text-center">Consulta Catalogo </h5>
+      <table className="table table-striped table-bordered">
         <thead>
           <tr>
             <th>ID</th>
