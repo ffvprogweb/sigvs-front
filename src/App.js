@@ -3,7 +3,7 @@ import ConsultaCatalogo from "./componentes/ConsultaCatalogo";
 import Header from "./componentes/Header";
 import Footer from "./componentes/Footer";
 import CadastrarProduto from "./componentes/CadastrarProduto";
-import AtualizarProduto from "./componentes/AtualizarProduto";
+
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
