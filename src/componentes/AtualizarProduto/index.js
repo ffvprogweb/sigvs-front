@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState } from "react";
 
 const AtualizarProduto = () => {
   const [descricao, setDescricao] = useState("");
   const [categoria, setCategoria] = useState("");
   const [quantidadeNoEstoque, setQuantidade] = useState("");
   const [custo, setCusto] = useState("");
-  const { id } = useParams();
-  const navigator = useNavigate();
 
   function manipulaDescricao(e) {
     setDescricao(e.target.value);

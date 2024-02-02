@@ -10,3 +10,5 @@ export const obtemProduto = (produtoId) => axios.get(url + `/` + produtoId);
 
 export const updateProduto = (produtoId, produto) =>
   axios.put(url + "/" + produtoId, produto);
+
+export const deleteProduto = (produtoId) => axios.delete(url + "/" + produtoId);
